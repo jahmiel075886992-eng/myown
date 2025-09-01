@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Home Page</title>
+  <style>
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --panel: #111827;     /* gray-900 */
+      --muted: #94a3b8;     /* slate-400 */
+      --text: #e5e7eb;      /* gray-200 */
+      --brand: #22c55e;     /* green-500 */
+      --brand-600: #16a34a; /* green-600 */
+      --ring: rgba(34,197,94,.35);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--text); background: linear-gradient(180deg, #0b1220, var(--bg));
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(8px);
+      background: rgba(15,23,42,.6);
+      border-bottom: 1px solid rgba(148,163,184,.1);
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .brand { font-weight: 700; letter-spacing: .3px; }
+    nav a {
+      color: var(--muted); text-decoration: none; margin-left: 18px; font-size: 15px;
+    }
+    nav a:hover { color: #fff; }
+    .btn {
+      display: inline-block; padding: 10px 16px; border-radius: 999px;
+      background: var(--brand); color: #07210f; font-weight: 600; text-decoration: none;
+      border: 1px solid rgba(0,0,0,.15); box-shadow: 0 8px 20px rgba(34,197,94,.2);
+    }
+    .btn:hover { background: var(--brand-600); }
+
+    /* Hero */
+    .hero { padding: 80px 0 60px; text-align: center; }
+    .title {
+      font-size: clamp(32px, 5vw, 48px); line-height: 1.1; margin: 0 0 12px;
+    }
+    .subtitle { color: var(--muted); max-width: 720px; margin: 0 auto 24px; }
+    .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .btn-ghost {
+      padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(148,163,184,.3);
+      color: #fff; text-decoration: none;
+    }
+    .btn-ghost:hover { border-color: rgba(148,163,184,.6); }
+
+    /* Features */
+    .section { padding: 56px 0; }
+    .grid {
+      display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr);
+    }
+    .card {
+      grid-column: span 12;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid rgba(148,163,184,.12); border-radius: 16px;
+      padding: 20px; transition: transform .15s ease, border-color .15s;
+    }
+    .card:hover { transform: translateY(-2px); border-color: rgba(148,163,184,.3); }
+    .card h3 { margin: 8px 0 6px; }
+    .card p { margin: 0; color: var(--muted); }
+
+    @media (min-width: 700px) {
+      .card { grid-column: span 4; }
+    }
+
+    /* About */
+    .about {
+      background: radial-gradient(1200px 400px at 50% -50%, rgba(34,197,94,.15), transparent 60%);
+      border-top: 1px solid rgba(148,163,184,.1);
+      border-bottom: 1px solid rgba(148,163,184,.1);
+    }
+    .about .content {
+      display: grid; gap: 20px;
+    }
+    @media (min-width: 800px) {
+      .about .content { grid-template-columns: 1.2fr 1fr; align-items: center; }
+    }
+    .panel {
+      background: rgba(17,24,39,.6); border: 1px solid rgba(148,163,184,.12);
+      border-radius: 16px; padding: 20px;
+    }
+
+    /* Contact */
+    form {
+      display: grid; gap: 12px;
+    }
+    input, textarea {
+      background: #0b1220; color: #fff; border: 1px solid rgba(148,163,184,.25);
+      border-radius: 10px; padding: 12px 14px; font: inherit;
+      outline: none;
+    }
+    input:focus, textarea:focus { box-shadow: 0 0 0 4px var(--ring); border-color: var(--brand); }
+    textarea { min-height: 120px; resize: vertical; }
+
+    /* Footer */
+    footer { color: var(--muted); text-align: center; padding: 32px 0; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">MySite</div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container">
+      <h1 class="title">Build fast. Look good. Ship confidently.</h1>
+      <p class="subtitle">
+        A minimal starter homepage you can customize for your project or portfolio.
+        Clean layout, responsive design, and accessible HTML/CSS.
+      </p>
+      <div class="cta">
+        <a href="#features" class="btn">Explore Features</a>
+        <a href="#about" class="btn-ghost">Learn More</a>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section container">
+      <div class="grid">
+        <article class="card">
+          <h3>Fast Setup</h3>
+          <p>Drop this file in your project and start editing right away.</p>
+        </article>
+        <article class="card">
+          <h3>Responsive</h3>
+          <p>Looks good on phones, tablets, and desktops—no extra work.</p>
+        </article>
+        <article class="card">
+          <h3>Clean & Accessible</h3>
+          <p>Semantic HTML, clear contrast, and keyboard-friendly controls.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about section">
+      <div class="container content">
+        <div>
+          <h2>About This Starter</h2>
+          <p style="color:var(--muted);">
+            This lightweight template includes a header, hero, feature cards, an about section,
+            and a contact form—perfect for a quick landing page or portfolio.
+            Customize colors, text, and sections to fit your brand.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Quick Tips</h3>
+          <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.7;">
+            <li>Change the site name in the header.</li>
+            <li>Replace section text with your content.</li>
+            <li>Add links to your GitHub, LinkedIn, or projects.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section container">
+      <h2>Contact</h2>
+      <p class="subtitle">Send a quick message. (This demo uses client-side validation only.)</p>
+      <form id="contact-form" novalidate>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+        <input type="email" id="email" name="email" placeholder="Email address" required />
+        <textarea id="message" name="message" placeholder="Your message" required></textarea>
+        <button class="btn" type="submit">Send Message</button>
+        <p id="form-note" style="margin:6px 0 0; color:var(--muted);"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> MySite • Built with plain HTML & CSS
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Simple client-side form validation demo
+    const form = document.getElementById('contact-form');
+    const note = document.getElementById('form-note');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const msg = form.message.value.trim();
+
+      if (!name || !email || !msg) {
+        note.textContent = "Please fill out all fields.";
+        note.style.color = "#fca5a5"; // light red
+        return;
+      }
+      // Basic email check
+      if (!/^\S+@\S+\.\S+$/.test(email)) {
+        note.textContent = "Please provide a valid email address.";
+        note.style.color = "#fca5a5";
+        return;
+      }
+      note.textContent = "Thanks! Your message was 'sent' (demo).";
+      note.style.color = "#86efac"; // light green
+      form.reset();
+    });
+  </script>
+</body>
+</html>
